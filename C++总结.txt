@@ -1,0 +1,13 @@
+1.指针
+	
+	
+	
+	
+2.移动构造函数:
+	定义：将对象A所有权转移到对象B上，移动构造函数参数不能是const引用，不能让多个指针指向相同的数据。
+	移动构造函数参数必须是右值
+	class Useless{
+		publuc:
+			Useless(Useless &&f);		//move constructor
+			Useless& operator=(Useless &&f);		//move assignment
+	}

@@ -1,0 +1,28 @@
+gdb调试命令：
+	run			run		运行一个程序
+	continue	c 		让暂停的程序继续运行
+	break		b		添加断点
+	tbreak		tb		添加临时断点
+	backtrace	bt		查看当前线程的调用堆栈
+	frame		f		切换到当前调用线程的指定堆栈
+	info		info	查看断点,线程等信息
+	enable		enable	启用某个断点
+	disable		disable 禁用某个断点
+	
+	delete		del		删除断点
+	list		l		显示源码
+	print		p		打印或修改变量，寄存器的值
+	ptype		ptype	查看变量的类型
+	thread		thread	切换到指定的线程
+	next		n		运行到下一行
+	step		s		如果有调用函数，则进入调用函数内部，相当于step info 
+	until		u		运行到指定的行停下来
+	finish		fi		结束当前调用函数,到上一层函数调用处
+	return		return	结束当前调用函数并返回指定的值，到上一层函数调用处
+	jump		j		将当前程序的执行流跳转到指定的行或地址
+	disassemble dis		查看汇编代码
+	set args			设置程序启动命令行参数
+	show args			查看设置的命令行参数
+	watch				监视某个变量或内存地址的值是否发生了变化
+	display				监视的变量或者内存地址，在程序中断后自动输出监控的变量或内存地址
+	dir					重定向源码文件位置

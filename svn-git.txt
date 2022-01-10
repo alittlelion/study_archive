@@ -1,0 +1,128 @@
+SVN 命令：
+	1.svn checkout [-r version] URL_PATH 				##从服务器检出版本库 -r：指定服务器根目录 version:版本号
+	
+	2.svn update [-r version]							##同步更新服务器内容 -r：指定版本 version：版本号
+	
+	3.svn status [-v] PATH								##查看本地修改
+	
+	4.svn add PATH(file/dir)							##添加文件、目录到版本控制
+	
+	5.svn commit -m"LogMessage"							##提交修改
+	
+	6.svn diff PATH(file)								##检查差异
+	
+	7.svn log [-v -r] 0:N								##查看历史日志 -r 0:N ：指定版本之间范围
+	
+	8.svn info 											##版本库浏览
+	
+	9.svn resolved PATH(file)							##解决冲突
+	
+	10.svn rename CURR_PATH NEW_PATH					##重命名文件、目录
+	
+	11.svn delete PATH(file/dir)						##删除文件、目录
+	
+	12.svn revert [-R] PATH								##恢复，撤销修改
+	
+	13.svn cleanup PATH(dir)							##清理
+	
+	14.svn copy -m "LogMessage" URL URL					##复制版本库
+	
+	15.svn switch [-r] URL PATH							##切换分支
+	
+	16.svn merge [--dry-run] --force URL(file) URL(file)##合并，--dry-run 完成命令所有操作不进行更改 --force 强制执行特定命令
+	
+	17.svn changelist fix files							##将指定修改文件添加到 fix 列表
+	
+	18.svn ci --changelist fix -m"LogMessage"			##提交指定修改列表文件
+
+
+	
+SVN 服务器搭建（Ubuntu）
+	1.创建版本库
+		1.1.cd /usr && sudo mkdir svn		
+		1.2.sudo cd svn && sudo mkdir repository && sudo chmod 777 repository
+		1.3.svnadmin create /usr/svn/repository
+	
+	2.修改配置文件
+		2.1.sudo chmod 777 db
+		2.2.cd conf
+		2.3.vi svnserver.conf		
+		2.4.取消注释：password-ds = password
+		2.5.vi password
+		2.6.添加用户、密码;例：wgl = wgl123
+		2.7.vi authz
+		2.8.修改用户权限;例：
+				admin = wgl（用户：wgl属于admin权限）;
+				* = rw（所有组具有读写权限）;
+	
+	3.测试服务器
+		3.1.svnserver -d -r /usr/svn/		##-d 后台运行	-r指定服务器根目录
+		3.2.连接服务器
+				checkout svn://url/repository
+				
+
+
+
+
+
+Git 命令：
+	1.git config --list --show-origin							##查看git所有配置，及所在文件夹
+	
+	2.git config --global user.name "wgl"						##配置用户信息
+	
+	3.git config --global user.email "xxxxx@example.com"		##配置用户邮箱地址
+	
+	
+	4.git config --list						##列出所有git配置
+	
+	
+	5.git init								##本地目录转换Git仓库
+		5.1.git add *.cpp					##添加当前目录下所有cpp后缀文件
+		5.2.git commit -m'LogMessage'		##提交修改到本地缓存
+	
+	
+	6.git clone URL 						##克隆远端仓库
+	
+	7.git status -s							##查看本地修改状态
+	
+	8.git add file							##添加文件
+	
+	8.cat .gitignore		##创建忽略文件
+		*.a					##忽略.a结尾文件
+		*.o					##忽略.o结尾文件
+		*.obj				##忽略.obj结尾文件
+		!lib.a				##不忽略lib.a结尾文件
+	
+	9.git diff --staged						##查看本地修改与最后一次提交的差异			
+	
+	10.git commit -m"LogMessage"			##提交修改到本地缓存
+	
+	11.git rm file/dir						##移除文件、目录
+		git rm --cached file				##移除缓存中的文件
+	
+	12.git mv file_from file_to				##重命名文件
+	
+	13.git log -2
+		选项 -n					##仅显示最近的n条提交
+		选项 --since,--after	##仅显示指定时间之后的提交
+		选项 --until,--before	##仅显示指定时间之前的提交
+		选项 --author			##仅显示作者匹配指定字符串的提交
+	
+	14.git commit --amend					##重新提交本地修改,两次修改中只提交一次	
+	
+	15.git reset HEAD						##取消暂存文件
+	
+	16.git checkout -- file					##撤销对文件修改,还原成上次提交的样子
+	
+	17.git remote
+		-v 						##列出所有远程仓库
+		add url					##添加远程仓库
+	
+	
+	18.git fetch <remote>					##只抓取数据，不自动合并
+	
+	19.git pull <remote>					##拉取数据，并自动合并
+	
+	20.git push origin master				##将master分支推送到远端仓库
+	
+	21.git checkout origin					##切换分支

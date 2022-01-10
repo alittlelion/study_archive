@@ -1,0 +1,4 @@
+x-server 编译未完事项
+	源码目录： sources/
+	ldm 交叉编译未完成
+	xorg-server 交叉编译待完成
